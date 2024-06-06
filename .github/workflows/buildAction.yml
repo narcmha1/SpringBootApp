@@ -2,7 +2,7 @@ name: "Main-Action"
 on:
     workflow_dispatch:
         inputs:
-            UserName:
+            username:
                 description: "Hello to You Name Please!"
                 required: true
                 default: "Venkat N"
@@ -13,4 +13,6 @@ jobs:
         steps:
           - name: Call Resuable Workflow
             uses: ./github/workflow/.action.yml
+            with:
+                username: "${{ github.events.inputs.username }}"
             
