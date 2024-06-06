@@ -8,22 +8,22 @@ on:
                 default: "Venkat N"
       
 jobs:
-    build:
+    tests:
+        uses: ./.github/workflows/composite-actions
+        secrets: inherit
+        with:
+            username: "${{ github.events.inputs.username }}"                
+
+    builds:
         runs-on: ubuntu-latest
         steps:
           - name: Run a one-line script
             uses: actions/checkout@v4
-      
-          - name: Show Secrets
             env:
-                JF_KEY: ${{ secrets.JF_KEY }} 
-            run: |
-                if [ $JF_KEY == "whoami" ]
-                then
+                JF_KEY: "${{ secrets.JF_KEY }}"
+             run: |
+                 if [ $JF_KEY == "whoami" ]
+                 then
                      echo "success"
-                fi
-          - name: Call Resuable Workflow
-            uses: ./.github/workflows/composite-actions
-            with:
-                username: "${{ github.events.inputs.username }}"                
+                 fi       
             
