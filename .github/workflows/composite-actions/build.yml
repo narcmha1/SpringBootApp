@@ -1,6 +1,6 @@
 name: build
 on:
-  dispatch-workflow:
+  workflow-dispatch:
     description: caller workflow
     inputs:
       username:
