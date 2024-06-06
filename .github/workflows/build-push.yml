@@ -9,7 +9,7 @@ on:
 jobs:
     build-deploy:
         secrets: inherit
-        uses: ./.github/workflows/actions/action.yml@master
+        uses: ./.github/workflows/actions/action.yml
         needs: builds
         with:
             username: ${{ github.event.inputs.username}}     
