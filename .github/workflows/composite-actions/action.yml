@@ -4,7 +4,7 @@ description: caller workflow
 inputs:
   username:
     required: true
-  runs-on: workflow-call
+
 runs:
   using: "composite"
 
@@ -22,6 +22,6 @@ jobs:
 
       - name: Print the input name to STDOUT
         run: |
-          echo "secret key is ${{ secrets.JF_KEY }}"
+          echo secret key is ${{ secrets.JF_KEY }}
           echo The username is ${{ inputs.username }}
           echo f"Welcome $${{ inputs.username }}"
