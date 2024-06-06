@@ -1,25 +1,26 @@
 name: build
+on:
+  dispatch-workflow:
+    description: caller workflow
+    inputs:
+      username:
+        required: true
 
-description: caller workflow
-inputs:
-  username:
-    required: true
+    secrets:
+      JF_KEY:
+        required: true
+      
+    jobs:
+      print-username:
+        runs-on: ubuntu-latest
 
-secrets:
-  JF_KEY:
-    required: true
-  
-jobs:
-  print-username:
-    runs-on: ubuntu-latest
+        steps:
+          - name: Run a one-line script
+            uses: actions/checkout@v4
 
-    steps:
-      - name: Run a one-line script
-        uses: actions/checkout@v4
-
-      - name: Print the input name to STDOUT
-        needs: print-username
-        run: |
-          echo secret key is ${{ secrets.JF_KEY }}
-          echo The username is ${{ inputs.username }}
-          echo f"Welcome $${{ inputs.username }}"
+          - name: Print the input name to STDOUT
+            needs: print-username
+            run: |
+              echo secret key is ${{ secrets.JF_KEY }}
+              echo The username is ${{ inputs.username }}
+              echo f"Welcome $${{ inputs.username }}"
