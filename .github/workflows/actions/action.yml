@@ -1,5 +1,13 @@
-name: 'Local Action'
+name: Test-Recursive
 description: 'Local action inside reusable workflow testing'
-runs:
-  using: ubuntu-latest
-  run:  echo "Hello"
+on: workflow_call
+
+secrets:
+    JF_KEY: ${{ JF_KEY }}
+jobs:
+  local-action-testing:
+    runs-on: ubuntu-latest
+    steps:
+        - name: Display carry outs
+          run: |
+            echo $JF_KEY
