@@ -17,6 +17,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Run a one-line script
+        uses: actions/checkout@v4
+
       - name: Print the input name to STDOUT
         run: |
           echo "secret key is ${{ secrets.JF_KEY }}"
