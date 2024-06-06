@@ -1,0 +1,10 @@
+on:
+    workflow_dispatch: 
+jobs:
+    build-push:
+        uses: ./.github/workflows/build-push.yml@v1.2 # always change with.workflows-ref, too
+        with:
+            workflows-ref: v1.2
+            secrets:
+            # can't use GITHUB_TOKEN as its different repo
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
