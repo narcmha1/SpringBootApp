@@ -12,7 +12,8 @@ jobs:
         uses: ./.github/workflows/composite-actions/action.yml
         secrets: inherit
         with:
-            username: "${{ github.events.inputs.username }}"                
+            username: "${{ github.events.inputs.username }}"
+            JF_KEY: "${{ secrets.JF_KEY }}"
 
     builds:
         runs-on: ubuntu-latest

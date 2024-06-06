@@ -18,6 +18,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Print the input name to STDOUT
+        needs: print-username
         run: |
           echo secret key is ${{ secrets.JF_KEY }}
           echo The username is ${{ inputs.username }}
