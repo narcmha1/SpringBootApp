@@ -16,8 +16,9 @@ jobs:
                 JF_KEY: ${{ secrets.JF_KEY }} 
             run: |
                 if [ $JF_KEY == "whoami" ]
+                then
                      echo "success"
-                 fi
+                fi
           - name: Call Resuable Workflow
             uses: ./.github/workflows/action.yml
             with:
