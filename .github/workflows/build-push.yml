@@ -1,3 +1,5 @@
+name: Test-Recursive
+
 on: workflow_call
 jobs:
   local-action-testing:
