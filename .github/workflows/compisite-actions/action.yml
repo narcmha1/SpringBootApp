@@ -1,5 +1,17 @@
 name: build
 
+description: caller workflow
+inputs:
+  username:
+    required: true
+  runs-on: workflow-call
+runs:
+  using: "composite"
+
+secrets:
+  JF_KEY:
+    required: true
+  
 jobs:
   print-username:
     runs-on: ubuntu-latest
@@ -7,5 +19,6 @@ jobs:
     steps:
       - name: Print the input name to STDOUT
         run: |
+          echo "secret key is ${{ secrets.JF_KEY }}"
           echo The username is ${{ inputs.username }}
           echo f"Welcome $${{ inputs.username }}"

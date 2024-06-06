@@ -20,7 +20,7 @@ jobs:
                      echo "success"
                 fi
           - name: Call Resuable Workflow
-            uses: ./.github/workflows/action.yml
+            uses: ./.github/workflows/composite-actions/action.yml
             with:
                 username: "${{ github.events.inputs.username }}"
             
