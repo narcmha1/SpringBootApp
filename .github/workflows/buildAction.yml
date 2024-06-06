@@ -9,7 +9,7 @@ on:
       
 jobs:
     tests:
-        uses: ./.github/workflows/composite-actions
+        uses: ./.github/workflows/composite-actions/action.yml
         secrets: inherit
         with:
             username: "${{ github.events.inputs.username }}"                
