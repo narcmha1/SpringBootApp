@@ -13,7 +13,7 @@ jobs:
         steps:
           - name: Show Secrets
             env:
-                JF_KEY: ${{ JF_KEY }} 
+                JF_KEY: ${{ secrets.JF_KEY }} 
             run: |
                 if [ $JF_KEY == "whoami" ]
                      echo "success"
