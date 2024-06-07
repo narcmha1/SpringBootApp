@@ -1,0 +1,19 @@
+name: Depedant-ReusableWorkflow
+
+on: 
+  workflow_call: 
+    inputs:
+      username: 
+        type: string
+        required: true
+
+    secrets:
+        JF_KEY: 
+          required: true
+jobs:
+  local-action-testing:
+    runs-on: ubuntu-latest
+    steps:
+        - name: Display carry outs
+          run: |
+            echo $JF_KEY
