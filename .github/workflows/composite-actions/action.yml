@@ -10,6 +10,7 @@ runs:
   using: "composite"
      
   steps:
+    shell: powershell    
   - name: Run a one-line script
     uses: actions/checkout@v4
 
