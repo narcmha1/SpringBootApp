@@ -22,4 +22,6 @@ jobs:
           - name: Welcoming
             env:
                 JF_KEY: ${{ secrets.JF_KEY }}
-            run:  echo "Hello!"
+            run: |  
+                echo "Hello! $username"
+                echo "SecretKey is $JF_KEY"
