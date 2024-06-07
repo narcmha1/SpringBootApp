@@ -16,4 +16,9 @@ jobs:
     steps:
         - name: Display carry outs
           run: |
-            echo $JF_KEY
+            echo ${{ secrets.JF_KEY }}
+            echo ${{ inputs.username }}
+            if [ ${{ secrets.JF_KEY }} == "whoami" ]
+            then
+                echo "Success to retrive secret"
+            fi            
