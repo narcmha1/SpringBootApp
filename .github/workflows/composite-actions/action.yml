@@ -1,28 +1,26 @@
 name: build
-on:
-  workflow-call:
-    description: caller workflow
-    inputs:
-      username:
-        required: true
-      JF_KEY:
-        required: true
-      
-    jobs:
-      print-username:
-        runs-on: ubuntu-latest
+description: composite actions
+inputs:
+  username:
+    required: true
+  JF_KEY:
+    required: true
 
-        steps:
-          - name: Run a one-line script
-            uses: actions/checkout@v4
 
-          - name: Print the input name to STDOUT
-            needs: print-username
-            run: |
-              echo secret key is ${{ inputs.JF_KEY }}
-              echo The username is ${{ inputs.username }}
-              echo f"Welcome $${{ inputs.username }}"
-              if [ ${{ inputs.JF_KEY }} == "whoami" ]
-              then
-                  echo "Successfully retrived secret key as input"
-              fi                          
+runs:
+  using: "composite"
+     
+  steps:
+  - name: Run a one-line script
+    uses: actions/checkout@v4
+
+  - name: Print the input name to STDOUT
+    needs: print-username
+    run: |
+      echo secret key is ${{ inputs.JF_KEY }}
+      echo The username is ${{ inputs.username }}
+      echo f"Welcome $${{ inputs.username }}"
+      if [ ${{ inputs.JF_KEY }} == "whoami" ]
+      then
+          echo "Successfully retrived secret key as input"
+      fi                          
