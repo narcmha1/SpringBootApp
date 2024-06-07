@@ -1,0 +1,31 @@
+name: "Main Composite Action"
+on:
+    workflow_dispatch: 
+        inputs:
+            username:
+                description: "Hello to You Name Please!"
+                required: true
+                default: "Venkat N"
+jobs:
+    build-deploy:
+        secrets: inherit
+        uses: ./.github/workflows/composite-actions/build.yml
+        needs: builds
+        with:
+            username: ${{ github.event.inputs.username}}     
+    builds: 
+        runs-on: ubuntu-latest   
+        steps:
+          - name: Checking out
+            uses: actions/checkout@v4
+
+          - name: Welcoming
+            env:
+                JF_KEY: ${{ secrets.JF_KEY }}
+            run: |  
+                echo "Hello! $username"
+                
+                if [ ${{ env.JF_KEY }} == "whoami" ]
+                then
+                    echo "Success to retrive secret"
+                fi
