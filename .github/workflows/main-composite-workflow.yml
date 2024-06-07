@@ -16,6 +16,9 @@ jobs:
     process: 
         runs-on: ubuntu-latest   
         steps:
+          - name: Checking out
+            uses: actions/checkout@v4
+
           - name: Calling composite action to run
             uses: ./.github/workflows/composite-actions
             with:
