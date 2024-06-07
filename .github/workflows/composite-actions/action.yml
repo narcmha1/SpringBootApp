@@ -6,7 +6,6 @@ inputs:
   JF_KEY:
     required: true
 
-
 runs:
   using: "composite"
      
@@ -15,7 +14,6 @@ runs:
     uses: actions/checkout@v4
 
   - name: Print the input name to STDOUT
-    needs: print-username
     run: |
       echo secret key is ${{ inputs.JF_KEY }}
       echo The username is ${{ inputs.username }}
