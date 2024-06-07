@@ -18,7 +18,6 @@ runs:
     run: |
       echo secret key is ${{ inputs.JF_KEY }}
       echo The username is ${{ inputs.username }}
-      echo f"Welcome $${{ inputs.username }}"
       if [ ${{ inputs.JF_KEY }} == "whoami" ]
       then
           echo "Successfully retrived secret key as input"
