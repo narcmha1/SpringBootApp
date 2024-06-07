@@ -14,6 +14,7 @@ runs:
     uses: actions/checkout@v4
 
   - name: Print the input name to STDOUT
+    shell: bash  
     run: |
       echo secret key is ${{ inputs.JF_KEY }}
       echo The username is ${{ inputs.username }}
@@ -22,4 +23,3 @@ runs:
       then
           echo "Successfully retrived secret key as input"
       fi
-      shell: bash
