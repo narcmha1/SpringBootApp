@@ -10,11 +10,11 @@ runs:
   using: "composite"
      
   steps:
-    shell: powershell    
   - name: Run a one-line script
     uses: actions/checkout@v4
 
   - name: Print the input name to STDOUT
+    shell: powershell
     run: |
       echo secret key is ${{ inputs.JF_KEY }}
       echo The username is ${{ inputs.username }}
