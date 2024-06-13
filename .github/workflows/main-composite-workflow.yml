@@ -24,3 +24,4 @@ jobs:
             with:
                 JF_KEY: ${{ secrets.JF_KEY }}
                 username: ${{ inputs.username }}
+                
